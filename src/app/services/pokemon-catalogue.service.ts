@@ -27,7 +27,7 @@ export class PokemonCatalogueService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public findAllGuitars(): void {
+  public findAllPokemon(): void {
     this._loading = true;
     this.http.get<Pokemon[]>(apiPokemon)
       .pipe(
