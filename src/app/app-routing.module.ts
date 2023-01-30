@@ -7,6 +7,11 @@ import { TrainerPage } from "./pages/trainer/trainer.page";
 const routes: Routes = [
     {
         path: "",
+        pathMatch: "full",
+        component: LoginPage
+    },
+    {
+        path: "login",
         component: LoginPage
     },
     {
