@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPage,
     CataloguePage,
-    TrainerPage
+    TrainerPage,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,
