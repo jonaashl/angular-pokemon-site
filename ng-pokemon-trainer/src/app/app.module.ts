@@ -11,8 +11,8 @@ import { TrainerPage } from './pages/trainer/trainer.page';
   declarations: [
     AppComponent,
     LoginPage,
-    TrainerPage,
-    CataloguePage
+    CataloguePage,
+    TrainerPage
   ],
   imports: [
     BrowserModule,

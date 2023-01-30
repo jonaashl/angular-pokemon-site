@@ -10,12 +10,12 @@ const routes: Routes = [
         component: LoginPage
     },
     {
-        path: "trainer",
-        component: TrainerPage
-    },
-    {
         path: "catalogue",
         component: CataloguePage
+    },
+    {
+        path: "trainer",
+        component: TrainerPage
     }
 ]
 
