@@ -1,4 +1,5 @@
 <ul>
-    <li>Pikachu</li>
-    <li>Bulby</li>
+    <li *ngFor="let pokemon of pokemonArr">
+        <span>{{ pokemon.name }}, url: {{ pokemon.url }}</span>
+    </li>
 </ul>
