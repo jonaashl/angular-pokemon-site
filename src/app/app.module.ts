@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 
@@ -16,13 +17,14 @@ import { FormsModule } from '@angular/forms';
     LoginPage,
     CataloguePage,
     TrainerPage,
-    LoginFormComponent
+    PokemonListComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
