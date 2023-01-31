@@ -1,10 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs'
+import { finalize, map } from 'rxjs'
 import { environment } from 'src/environments/environment';
-
-//TODO: check if import works
-import { Pokemon } from "../models/pokemon.model.ts"
+import { Pokemon } from "src/app/models/pokemon.model"
 
 const { apiPokemon } = environment;
 
@@ -35,6 +33,7 @@ export class PokemonCatalogueService {
     this._loading = true;
     this.http.get<Pokemon[]>(apiPokemon)
       .pipe(
+        map((response: any) => response.results),
         finalize(() => {
           this._loading = false;
         })
