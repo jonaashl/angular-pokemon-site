@@ -27,12 +27,11 @@ export class CatchPokemonButtonComponent implements OnInit {
     }
 
     onCatchClick(): void {
-        alert("caught " + this.pokemonName);
         this.catchPokemonService
             .addToCaughtPokemon(this.pokemonName)
             .subscribe({
                 next: (response: User) => {
-                    console.log("NEXT", response);
+                    this.isCaught = this.userService.inCaughtPokemon(this.pokemonName);
                 },
                 error: (error: HttpErrorResponse) => {
                     console.log("ERROR", error.message);

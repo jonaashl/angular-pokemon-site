@@ -38,10 +38,13 @@ export class CatchPokemonService {
       throw new Error(`addToCaughtPokemon: No pokemon with name ${pokemonName}`)
     }
 
+    // ? burde aldri kunne komme inn i if her siden button er disabled etter catch
     if (this.userService.inCaughtPokemon(pokemonName)) {
       alert("You've already caught this pokemon!")
       //TODO: Improve handling of this error
       throw new Error(`addToCaughtPokemon: Pokemon ${pokemonName} already caught.`)
+    } else {
+        this.userService.catchPokemon(pokemonName);
     }
 
     const headers = new HttpHeaders({
