@@ -47,4 +47,9 @@ export class PokemonCatalogueService {
         }
       })
   }
+
+  public pokemonByName(pokemonName: string): Pokemon | undefined {
+    //TODO: change to ID - use parser util
+    return this._pokemonArr.find((pokemon: Pokemon) => pokemon.name === pokemonName);
+  }
 }

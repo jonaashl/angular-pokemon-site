@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { CatchPokemonService } from 'src/app/services/catch-pokemon.service';
 
 @Component({
   selector: 'app-catch-pokemon-button',
@@ -10,7 +13,24 @@ export class CatchPokemonButtonComponent {
   // Dewald bruker ID -- Discuss
   @Input() pokemonName: string = "";
 
+  get loading(): boolean {
+    return this.catchPokemonService.loading;
+  }
+
+  constructor(
+    private readonly catchPokemonService: CatchPokemonService
+  ) {}
+
   onCatchClick(): void {
     alert("caught " + this.pokemonName);
+    this.catchPokemonService.addToCaughtPokemon(this.pokemonName)
+      .subscribe({
+        next: (response: User) => {
+          console.log("NEXT", response);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log("ERROR", error.message);
+        }
+      })
   }
 }
