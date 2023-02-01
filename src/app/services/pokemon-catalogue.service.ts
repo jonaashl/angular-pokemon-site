@@ -47,4 +47,9 @@ export class PokemonCatalogueService {
         }
       })
   }
+
+  public pokemonById(id: string): Pokemon | undefined {
+    //TODO: check if id is string
+    return this._pokemonArr.find((pokemon: Pokemon) => pokemon.name === id)
+  }
 }
