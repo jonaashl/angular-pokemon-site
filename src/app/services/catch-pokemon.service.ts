@@ -39,6 +39,8 @@ export class CatchPokemonService {
     }
 
     if (this.userService.inCaughtPokemon(pokemonName)) {
+      alert("You've already caught this pokemon!")
+      //TODO: Improve handling of this error
       throw new Error(`addToCaughtPokemon: Pokemon ${pokemonName} already caught.`)
     }
 
