@@ -1,6 +1,16 @@
 <aside class="absolute top-4 right-4">
     <button (click)="onCatchClick()"
-        class="border border-slate-300 rounded flex justify-center items-center p-2 text-red-700">
-        <span class="material-icons">favorite_border</span>
+        class="border border-slate-300 rounded flex justify-center items-center align-middle p-2 w-16 h-16">
+
+        <ng-container *ngIf="isCaught; then caught else notCaught"></ng-container>
+
+        <ng-template #notCaught>
+            <span>Catch</span>
+        </ng-template>
+        <ng-template #caught>
+            <span>
+                <img src="assets/images/pokeball.png" alt="Caught">
+            </span>
+        </ng-template>
     </button>
 </aside>
