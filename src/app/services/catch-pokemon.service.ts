@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
@@ -26,7 +26,7 @@ export class CatchPokemonService {
     private readonly userService: UserService
   ) { }
 
-  public addToCaughtPokemon(pokemonName: string): Observable<any> {
+  public addToCaughtPokemon(pokemonName: string): Observable<User> {
     if (!this.userService.user) {
       throw new Error("addToCaughtPokemon: There is no user");
     }
@@ -49,12 +49,15 @@ export class CatchPokemonService {
 
     this._loading = true;
 
-    return this.http.patch(`${apiUsers}/${user.id}`, {
+    return this.http.patch<User>(`${apiUsers}/${user.id}`, {
       pokemon: [...user.pokemon, pokemonName]
     }, {
       headers
     })
     .pipe(
+      tap((updatedUser: User) => {
+        this.userService.user = updatedUser;
+      }),
       finalize(() => {
         this._loading = false;
       })
