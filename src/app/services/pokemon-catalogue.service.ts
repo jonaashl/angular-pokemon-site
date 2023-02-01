@@ -48,8 +48,8 @@ export class PokemonCatalogueService {
       })
   }
 
-  public pokemonById(id: string): Pokemon | undefined {
-    //TODO: check if id is string
-    return this._pokemonArr.find((pokemon: Pokemon) => pokemon.name === id)
+  public pokemonByName(pokemonName: string): Pokemon | undefined {
+    //TODO: change to ID - use parser util
+    return this._pokemonArr.find((pokemon: Pokemon) => pokemon.name === pokemonName);
   }
 }
