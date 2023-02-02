@@ -14,6 +14,7 @@ export class CatchPokemonButtonComponent implements OnInit {
     public isCaught: boolean = false;
     @Input() pokemonName: string = "";
 
+
     constructor(
         private userService: UserService,
         private readonly catchPokemonService: CatchPokemonService
@@ -28,7 +29,7 @@ export class CatchPokemonButtonComponent implements OnInit {
         this.catchPokemonService
             .addToCaughtPokemon(this.pokemonName)
             .subscribe({
-                next: (response: User) => {
+                next: (user: User) => {
                     this.loading = false;
                     this.isCaught = this.userService.inCaughtPokemon(this.pokemonName);
                 },
