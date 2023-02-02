@@ -25,19 +25,15 @@ export class UserService {
 
     public inCaughtPokemon(pokemonName: string): boolean {
         if (this._user) {
-            return Boolean(
-                this._user.pokemon.find(
-                    (pokemonStr: string) => pokemonStr === pokemonName
-                )
-            );
+            return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName)); 
         }
         return false;
     }
 
     // tilsvarende addToFavourites
-    public catchPokemon(pokemonName: string): void {
+    public catchPokemon(pokemon: Pokemon): void {
         if (this._user) {
-            this._user.pokemon.push(pokemonName);
+            this._user.pokemon.push(pokemon);
         }
     }
 
@@ -46,7 +42,7 @@ export class UserService {
     public releasePokemon(pokemonName: string): void {
         if (this._user) {
             this._user.pokemon = this._user.pokemon.filter(
-                (pokemon: string) => pokemon !== pokemonName
+                (pokemon: Pokemon) => pokemon.name !== pokemonName
             );
         }
     }

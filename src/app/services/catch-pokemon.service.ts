@@ -13,11 +13,16 @@ const { apiKey, apiUsers } = environment;
     providedIn: "root",
 })
 export class CatchPokemonService {
+    
     private _loading: boolean = false;
+
+    get loading(): boolean {
+        return this._loading
+    }
 
     constructor(
         private http: HttpClient,
-        private readonly pokemonService: PokemonCatalogueService,
+        private readonly pokemonCatalogueService: PokemonCatalogueService,
         private readonly userService: UserService
     ) {}
 
@@ -27,24 +32,20 @@ export class CatchPokemonService {
         }
 
         const user: User = this.userService.user;
-        const pokemon: Pokemon | undefined =
-            this.pokemonService.pokemonByName(pokemonName);
 
-        if (!pokemon) {
+        const clickedPokemon: Pokemon | undefined =
+            this.pokemonCatalogueService.pokemonByName(pokemonName);
+
+        if (!clickedPokemon) {
             throw new Error(
                 `addToCaughtPokemon: No pokemon with name ${pokemonName}`
             );
         }
 
-        // ? burde aldri kunne komme inn i if her siden button er disabled etter catch
         if (this.userService.inCaughtPokemon(pokemonName)) {
-            alert("You've already caught this pokemon!");
-            //TODO: Improve handling of this error
-            throw new Error(
-                `addToCaughtPokemon: Pokemon ${pokemonName} already caught.`
-            );
+            this.userService.releasePokemon(pokemonName)
         } else {
-            this.userService.catchPokemon(pokemonName);
+            this.userService.catchPokemon(clickedPokemon);
         }
 
         const headers = new HttpHeaders({
@@ -52,11 +53,13 @@ export class CatchPokemonService {
             "x-api-key": apiKey,
         });
 
+        this._loading = true;
+
         return this.http
             .patch<User>(
                 `${apiUsers}/${user.id}`,
                 {
-                    pokemon: [...user.pokemon, pokemonName],
+                    pokemon: [...user.pokemon],
                 },
                 {
                     headers,
@@ -65,6 +68,9 @@ export class CatchPokemonService {
             .pipe(
                 tap((updatedUser: User) => {
                     this.userService.user = updatedUser;
+                }),
+                finalize(() => {
+                    this._loading = false;
                 })
             );
     }
