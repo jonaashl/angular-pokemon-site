@@ -2,7 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { finalize, map } from 'rxjs'
 import { environment } from 'src/environments/environment';
-import { Pokemon } from "src/app/models/pokemon.model"
+import { Pokemon } from "src/app/models/pokemon.model";
+import { StorageUtil } from "../utils/storage.util";
+import { StorageKeys } from '../enums/storage-keys.enum';
 
 const { apiPokemon } = environment;
 
@@ -30,6 +32,12 @@ export class PokemonCatalogueService {
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
+    const storagePokemon = StorageUtil.storageRead<Pokemon[]>(StorageKeys.Pokemon)
+    if (storagePokemon !== undefined) {
+        this._pokemonArr = storagePokemon;
+        return;
+    }
+
     this._loading = true;
     this.http.get<Pokemon[]>(apiPokemon)
       .pipe(
@@ -40,6 +48,7 @@ export class PokemonCatalogueService {
       )
       .subscribe({
         next: (pokemonArr: Pokemon[]) => {
+          StorageUtil.storageSave<Pokemon[]>(StorageKeys.Pokemon, pokemonArr)
           this._pokemonArr = pokemonArr;
         },
         error: (error: HttpErrorResponse) => {
