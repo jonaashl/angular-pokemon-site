@@ -1,4 +1,4 @@
-<li *ngIf="pokemon" class="mb-4 shadow relative">
+<li *ngIf="pokemon" class="mb-4 shadow relative bg-pokeball-white">
     <app-catch-pokemon-button [pokemonName]="pokemon.name"></app-catch-pokemon-button>
     <section class="p-4">
         <img [src]="spriteUrl + pokemon.url.split('/')[6] + '.png'" [alt]="pokemon.name" class="block w-24">
