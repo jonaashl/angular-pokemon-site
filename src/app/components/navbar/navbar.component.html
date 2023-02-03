@@ -3,13 +3,13 @@
         <ng-container *ngIf="user !== undefined">
             <ul class="px-10 flex justify-around items-center">
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl select" routerLink="/catalogue">Catalogue</a>
+                    <a class="text-pokeball-white text-4xl" routerLink="/catalogue">Catalogue</a>
                 </li>
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl select" routerLink="/trainer">Trainer</a>
+                    <a class="text-pokeball-white text-4xl" routerLink="/trainer">Trainer</a>
                 </li>
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl select" routerLink="/">Log out</a>
+                    <a class="text-pokeball-white text-4xl" (click)="onLogoutClick()" routerLink="/">Log out</a>
                 </li>
             </ul>
         </ng-container>
