@@ -25,20 +25,17 @@ export class UserService {
 
     public inCaughtPokemon(pokemonName: string): boolean {
         if (this._user) {
-            return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName)); 
+            return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName));
         }
         return false;
     }
 
-    // tilsvarende addToFavourites
     public catchPokemon(pokemon: Pokemon): void {
         if (this._user) {
             this._user.pokemon.push(pokemon);
         }
     }
 
-    // Tilsvarende removeFromFavourites
-    // TODO: bruk denne på Trainer page for å release pokemon
     public releasePokemon(pokemonName: string): void {
         if (this._user) {
             this._user.pokemon = this._user.pokemon.filter(

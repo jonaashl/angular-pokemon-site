@@ -13,7 +13,7 @@ const { apiKey, apiUsers } = environment;
     providedIn: "root",
 })
 export class CatchPokemonService {
-    
+
     private _loading: boolean = false;
 
     get loading(): boolean {
@@ -26,9 +26,9 @@ export class CatchPokemonService {
         private readonly userService: UserService
     ) {}
 
-    public addToCaughtPokemon(pokemonName: string): Observable<User> {
+    public updateCaughtPokemon(pokemonName: string): Observable<User> {
         if (!this.userService.user) {
-            throw new Error("addToCaughtPokemon: There is no user");
+            throw new Error("updateCaughtPokemon: There is no user");
         }
 
         const user: User = this.userService.user;
@@ -38,7 +38,7 @@ export class CatchPokemonService {
 
         if (!clickedPokemon) {
             throw new Error(
-                `addToCaughtPokemon: No pokemon with name ${pokemonName}`
+                `updateCaughtPokemon: No pokemon with name ${pokemonName}`
             );
         }
 

@@ -13,6 +13,6 @@ const { apiSprites } = environment;
 export class PokemonListItemComponent {
     @Input() pokemon?: Pokemon;
 
-    spriteUrl: string = apiSprites
+    spriteUrl: string = apiSprites;
 
 }
