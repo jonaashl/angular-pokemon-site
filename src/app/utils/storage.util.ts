@@ -1,4 +1,5 @@
 export class StorageUtil {
+
     public static storageSave<T>(key: string, value: T): void {
         sessionStorage.setItem(key, JSON.stringify(value));
     }
@@ -16,5 +17,9 @@ export class StorageUtil {
             sessionStorage.removeItem(key);
             return undefined;
         }
+    }
+
+    public static storageDelete(): void {
+        sessionStorage.clear()
     }
 }

@@ -1,14 +1,20 @@
 <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)" class="flex justify-center align-middle text-center">
     <fieldset class="flex justify-center align-middle bg-white rounded-full border-black border-40 p-20">
-        <input
-            type="text"
-            ngModel
-            #username="ngModel"
-            name="username"
-            id="username"
-            class="text-4xl font-pixeloid-bold text-center max-w-lg"
-            placeholder="Your trainer name"
-        />
+      <input
+        type="text"
+        id="username"
+        ngModel
+        #username="ngModel"
+        name="username"
+        [ngModel]="usernameControl.value"
+        class="text-4xl font-pixeloid-bold text-center max-w-lg"
+        placeholder="Your trainer name"
+        required
+      />
+      <div *ngIf="loginForm.submitted && username.errors?.['required']">
+        <span class="">Enter name</span> 
+      </div>
     </fieldset>
-    <button type="submit" class="absolute bottom-20 text-4xl font-pixeloid-bold">> Continue</button>
-</form>
+    <button type="submit" class="absolute bottom-20 text-4xl font-pixeloid-bold">Continue</button>
+  </form>
+  
