@@ -1,8 +1,8 @@
-<app-navbar></app-navbar>
-<header class="container mx-auto p-4">
-    <h1 class="text-3xl font-pixeloid-bold">Welcome, {{ this.user?.username }}</h1>
-</header>
-<main class="container mx-auto p-4">
-    <h4 class="text-xl">Your caught pokemon</h4>
-    <app-pokemon-list [pokemonArr]="caughtPokemon"></app-pokemon-list>
+<main class="container min-h-screen flex flex-col items-center" style="background: linear-gradient(to bottom, #BD3736 0%, #BD3736 120px, #000000 0, #000000 165px, #FFFFFF 0); min-width: 100%">
+    <app-page-header headerText="Hi {{ this.user?.username }}!"></app-page-header>
+    <body class="container mx-auto p-4">
+        <h4 class="text-xl">Your caught pokemon</h4>
+        <app-pokemon-list [pokemonArr]="caughtPokemon"></app-pokemon-list>
+    </body>
 </main>
+<app-navbar></app-navbar>
