@@ -1,0 +1,9 @@
+button{
+    position: relative;
+}
+button:hover::before{
+    content: "> ";
+    color: black;
+    position: absolute;
+    left: -10px;
+}
