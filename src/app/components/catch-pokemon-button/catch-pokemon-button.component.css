@@ -1,0 +1,6 @@
+button:hover:enabled:before{
+    content: "> ";
+    color: black;
+    position: absolute;
+    left: -10px;
+}
