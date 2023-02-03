@@ -1,7 +1,7 @@
-a{
+a {
     position: relative;
 }
-a:hover::before{
+a:hover::before {
     content: "> ";
     color: white;
     position: absolute;

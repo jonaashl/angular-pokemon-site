@@ -1,3 +1,19 @@
-<main class="container min-h-screen flex justify-center items-center" style="background: linear-gradient(to bottom, #BD3736 0%, #BD3736 45%, #000000 0, #000000 55%, #FFFFFF 0); min-width: 100%;">
-    <app-login-form class="p-8 basis-1/4" (login)="handleLogin()"></app-login-form>
+<main
+    class="container flex min-h-screen items-center justify-center"
+    style="
+        background: linear-gradient(
+            to bottom,
+            #bd3736 0%,
+            #bd3736 45%,
+            #000000 0,
+            #000000 55%,
+            #ffffff 0
+        );
+        min-width: 100%;
+    "
+>
+    <app-login-form
+        class="basis-1/4 p-8"
+        (login)="handleLogin()"
+    ></app-login-form>
 </main>

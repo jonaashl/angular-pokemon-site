@@ -13,11 +13,10 @@ const { apiKey, apiUsers } = environment;
     providedIn: "root",
 })
 export class CatchPokemonService {
-
     private _loading: boolean = false;
 
     get loading(): boolean {
-        return this._loading
+        return this._loading;
     }
 
     constructor(
@@ -43,7 +42,7 @@ export class CatchPokemonService {
         }
 
         if (this.userService.inCaughtPokemon(pokemonName)) {
-            this.userService.releasePokemon(pokemonName)
+            this.userService.releasePokemon(pokemonName);
         } else {
             this.userService.catchPokemon(clickedPokemon);
         }

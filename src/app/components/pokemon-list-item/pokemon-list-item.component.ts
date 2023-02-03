@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Pokemon } from "src/app/models/pokemon.model";
-import { environment } from "src/environments/environment"
+import { environment } from "src/environments/environment";
 
 const { apiSprites } = environment;
 
@@ -9,10 +9,8 @@ const { apiSprites } = environment;
     templateUrl: "./pokemon-list-item.component.html",
     styleUrls: ["./pokemon-list-item.component.css"],
 })
-
 export class PokemonListItemComponent {
     @Input() pokemon?: Pokemon;
 
     spriteUrl: string = apiSprites;
-
 }
