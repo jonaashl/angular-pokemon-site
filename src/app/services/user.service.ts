@@ -46,4 +46,9 @@ export class UserService {
             );
         }
     }
+
+    public logOut(): void {
+        StorageUtil.storageDelete();
+        this.user = undefined;
+    }
 }
