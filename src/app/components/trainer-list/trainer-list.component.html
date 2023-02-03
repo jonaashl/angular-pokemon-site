@@ -1,8 +1,16 @@
-<ul class="float-left flex w-2/5 flex-col pt-4">
+<div class="flex">
+    <h2 class="ml-8 font-pixeloid-bold text-2xl">Your caught pokemon</h2>
+    <h2 class="ml-8 font-pixeloid-bold text-2xl absolute left-1/2">Details</h2>
+</div>
+<ul class="float-left ml-8 flex w-2/5 flex-col pt-4">
     <app-trainer-list-item
         *ngFor="let pokemon of caughtPokemon"
         [pokemon]="pokemon"
+        (emitter)="send($event)"
     >
     </app-trainer-list-item>
 </ul>
-<section class="float-right flex w-2/5 pt-4">details</section>
+<section class="float-right mr-8 flex w-2/5 pt-4">
+    <app-trainer-list-details [selectedPokemon]="selectedPokemon">
+    </app-trainer-list-details>
+</section>

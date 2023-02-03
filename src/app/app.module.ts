@@ -16,6 +16,7 @@ import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/c
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { TrainerListComponent } from './components/trainer-list/trainer-list.component';
 import { TrainerListItemComponent } from './components/trainer-list-item/trainer-list-item.component';
+import { TrainerListDetailsComponent } from './components/trainer-list-details/trainer-list-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TrainerListItemComponent } from './components/trainer-list-item/trainer
     PageHeaderComponent,
     TrainerListComponent,
     TrainerListItemComponent,
+    TrainerListDetailsComponent,
   ],
   imports: [
     BrowserModule,

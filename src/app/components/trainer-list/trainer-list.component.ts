@@ -8,4 +8,10 @@ import { Pokemon } from "src/app/models/pokemon.model";
 })
 export class TrainerListComponent {
     @Input() caughtPokemon?: Pokemon[] = [];
+
+    selectedPokemon: Pokemon | undefined = undefined;
+
+    send(selectedPokemon: Pokemon) {
+        this.selectedPokemon = selectedPokemon;
+    }
 }

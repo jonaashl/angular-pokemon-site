@@ -10,10 +10,8 @@ import { UserService } from "src/app/services/user.service";
     styleUrls: ["./catch-pokemon-button.component.css"],
 })
 export class CatchPokemonButtonComponent implements OnInit {
-    public loading: boolean = false;
     public isCaught: boolean = false;
     @Input() pokemonName: string = "";
-
 
     constructor(
         private userService: UserService,
@@ -25,13 +23,13 @@ export class CatchPokemonButtonComponent implements OnInit {
     }
 
     onCatchClick(): void {
-        this.loading = true;
         this.catchPokemonService
-            .addToCaughtPokemon(this.pokemonName)
+            .updateCaughtPokemon(this.pokemonName)
             .subscribe({
                 next: (user: User) => {
-                    this.loading = false;
-                    this.isCaught = this.userService.inCaughtPokemon(this.pokemonName);
+                    this.isCaught = this.userService.inCaughtPokemon(
+                        this.pokemonName
+                    );
                 },
                 error: (error: HttpErrorResponse) => {
                     console.log("ERROR", error.message);

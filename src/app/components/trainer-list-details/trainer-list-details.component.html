@@ -1,0 +1,24 @@
+<section class="h-64 p-4">
+    <ng-container
+        *ngIf="currentPokemon; then selected; else noneSelected"
+    ></ng-container>
+    <ng-template #selected>
+        <section>
+            <h3 class="font-pixeloid-bold text-lg">
+                {{ currentPokemon!.name | titlecase }}
+            </h3>
+            <section class="flex h-24 w-36 p-4">
+                <img
+                    [src]="
+                        spriteUrl + currentPokemon!.url.split('/')[6] + '.gif'
+                    "
+                    [alt]="currentPokemon!.name"
+                />
+            </section>
+            <button (click)="onReleaseClick()">Release</button>
+        </section>
+    </ng-template>
+    <ng-template #noneSelected>
+        <h4>Click on a pokemon to show its details!</h4>
+    </ng-template>
+</section>
