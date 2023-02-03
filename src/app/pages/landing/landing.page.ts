@@ -3,11 +3,11 @@ import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 
 @Component({
-    selector: "app-login",
-    templateUrl: "./login.page.html",
-    styleUrls: ["./login.page.css"],
+    selector: "app-landing",
+    templateUrl: "./landing.page.html",
+    styleUrls: ["./landing.page.css"],
 })
-export class LoginPage implements OnInit {
+export class LandingPage implements OnInit {
     ngOnInit(): void {
         if (this.userService.user) {
             this.router.navigateByUrl("/catalogue");
@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
         private readonly userService: UserService
         ) {}
 
-    
+
     handleLogin(): void {
         this.router.navigateByUrl("/catalogue");
     }
