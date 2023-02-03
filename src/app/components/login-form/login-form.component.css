@@ -1,3 +1,10 @@
 #username:focus {
     outline: none;
 }
+
+button:hover::before{
+    content: "> ";
+    color: black;
+    position: absolute;
+    left: -30px;
+}
