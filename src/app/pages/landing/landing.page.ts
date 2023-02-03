@@ -12,14 +12,12 @@ export class LandingPage implements OnInit {
         if (this.userService.user) {
             this.router.navigateByUrl("/catalogue");
         }
-
     }
 
     constructor(
         private readonly router: Router,
         private readonly userService: UserService
-        ) {}
-
+    ) {}
 
     handleLogin(): void {
         this.router.navigateByUrl("/catalogue");

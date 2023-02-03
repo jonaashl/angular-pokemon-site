@@ -1,7 +1,12 @@
-<li *ngIf="pokemon" class="shadow relative bg-pokeball-white w-72 m-4">
-    <app-catch-pokemon-button [pokemonName]="pokemon.name"></app-catch-pokemon-button>
-    <section class="p-4 w-36 h-24 flex items-center justify-center">
-        <img [src]="spriteUrl + pokemon.url.split('/')[6] + '.gif'" [alt]="pokemon.name">
+<li *ngIf="pokemon" class="relative m-4 w-72 bg-pokeball-white shadow">
+    <app-catch-pokemon-button
+        [pokemonName]="pokemon.name"
+    ></app-catch-pokemon-button>
+    <section class="flex h-24 w-36 items-center justify-center p-4">
+        <img
+            [src]="spriteUrl + pokemon.url.split('/')[6] + '.gif'"
+            [alt]="pokemon.name"
+        />
     </section>
     <section class="p-4">
         <span class="text-xl">{{ pokemon.name | titlecase }}</span>

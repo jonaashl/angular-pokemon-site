@@ -1,15 +1,30 @@
-<section class="flex flex-col justify-center items-center sticky w-screen bottom-0 z-50">
-    <nav class="bg-pokeball-black  rounded-full py-4 m-10" style="width: 1000px;">
+<section
+    class="sticky bottom-0 z-50 flex w-screen flex-col items-center justify-center"
+>
+    <nav class="m-10 rounded-full bg-pokeball-black py-4" style="width: 1000px">
         <ng-container *ngIf="user !== undefined">
-            <ul class="px-10 flex justify-around items-center">
+            <ul class="flex items-center justify-around px-10">
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl" routerLink="/catalogue">Catalogue</a>
+                    <a
+                        class="text-4xl text-pokeball-white"
+                        routerLink="/catalogue"
+                        >Catalogue</a
+                    >
                 </li>
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl" routerLink="/trainer">Trainer</a>
+                    <a
+                        class="text-4xl text-pokeball-white"
+                        routerLink="/trainer"
+                        >Trainer</a
+                    >
                 </li>
                 <li class="px-4">
-                    <a class="text-pokeball-white text-4xl" (click)="onLogoutClick()" routerLink="/">Log out</a>
+                    <a
+                        class="text-4xl text-pokeball-white"
+                        (click)="onLogoutClick()"
+                        routerLink="/"
+                        >Log out</a
+                    >
                 </li>
             </ul>
         </ng-container>

@@ -25,7 +25,11 @@ export class UserService {
 
     public inCaughtPokemon(pokemonName: string): boolean {
         if (this._user) {
-            return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName));
+            return Boolean(
+                this.user?.pokemon.find(
+                    (pokemon: Pokemon) => pokemon.name === pokemonName
+                )
+            );
         }
         return false;
     }

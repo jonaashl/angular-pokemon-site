@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core"
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./guards/auth.guard";
 import { CataloguePage } from "./pages/catalogue/catalogue.page";
@@ -9,33 +9,26 @@ const routes: Routes = [
     {
         path: "",
         pathMatch: "full",
-        component: LandingPage
+        component: LandingPage,
     },
     {
         path: "landing",
-        component: LandingPage
+        component: LandingPage,
     },
     {
         path: "catalogue",
         component: CataloguePage,
-        canActivate: [ AuthGuard ]
+        canActivate: [AuthGuard],
     },
     {
         path: "trainer",
         component: TrainerPage,
-        canActivate: [ AuthGuard ]
-    }
-]
+        canActivate: [AuthGuard],
+    },
+];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes)
-    ],
-    exports: [
-        RouterModule
-    ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
