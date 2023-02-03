@@ -1,0 +1,7 @@
+<li *ngIf="pokemon" class="flex items-center">
+    <img
+        [src]="smallSpriteUrl + pokemon.url.split('/')[6] + '.png'"
+        [alt]="pokemon.name + ' icon'"
+    />
+    <aside class="ml-8">{{ pokemon.name | titlecase }}</aside>
+</li>
